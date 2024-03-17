@@ -20,8 +20,15 @@ if "conversation_history" not in st.session_state:
     st.session_state.conversation_history = []
 
 # Function to get Gemini response
-def get_gemini_response(input, image, prompt):
-    response = model.generate_content([input, image, prompt])
+def get_gemini_response(input_prompt, image_data, prompt):
+    # Check if image data is None
+    if image_data is None:
+        st.error("Please upload an image.")
+        return
+
+    # Generate content using the model
+    response = model.generate_content([input_prompt, image_data, prompt])
+
     return response.text
 
 # Function to setup image input
