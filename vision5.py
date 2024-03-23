@@ -5,7 +5,8 @@ import os
 import pandas as pd
 
 # Configure Google GenerativeAI
-os.getenv("GOOGLE_API_KEY")
+#os.getenv("GOOGLE_API_KEY")
+st.write("GOOGLE_API_KEY:", st.secrets["AIzaSyB2dpgt35gRblseazBvQ1q689qSrinUoUQ"])
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Initialize GenerativeModel
